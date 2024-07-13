@@ -2,29 +2,53 @@
 <html lang="en">
   <head>
 
+    <!-- HEAD -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>HBNB</title>
+    <title>Holberton AirBnB</title>
 
-    <link rel="shortcut icon" href="../static/images/icon.png?{{ cache_id }}">
+    <!-- FAVICON -->
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}">
 
-    <link rel="stylesheet" href="../static/styles/4-common.css?{{ cache_id }}">
-    <link rel="stylesheet" href="../static/styles/3-header.css?{{ cache_id }}">
-    <link rel="stylesheet" href="../static/styles/3-footer.css?{{ cache_id }}">
-    <link rel="stylesheet" href="../static/styles/6-filters.css?{{ cache_id }}">
-    <link rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
-    <link rel="stylesheet" href="../static/styles/font-awesome.css?{{ cache_id }}">
+    <!-- **********************
+	 CSS styles
+	 ********************** -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/font-awesome.css') }}">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
 
+  <!-- **********************
+       BODY
+       ********************** -->
+
   <body>
+
+    <!-- **********************
+	 HEADER
+	 ********************** -->
 
     <header>
     </header>
     <main>
       <div class="container">
 
+	<!-- **********************
+	     FILTERS
+	     ********************** -->
+
 	<section class="filters">
+
+	  <!-- **********************
+	       LOCATIONS
+	       ********************** -->
 
 	  <div class="locations">
 	    <h3>States</h3>
@@ -41,6 +65,10 @@
 	    </ul>
 	  </div>
 
+	  <!-- **********************
+	       AMENITIES
+	       ********************** -->
+
 	  <div class="amenities">
 	    <h3>Amenities</h3>
 	    <h4>&nbsp;</h4>
@@ -51,11 +79,19 @@
 	    </ul>
 	  </div>
 
+	  <!-- **********************
+	       SEARCH BUTTON
+	       ********************** -->
+
 	  <button>Search</button>
 	</section>
 
 	<section class="places">
 	  <h1>Places</h1>
+
+	<!-- **********************
+	     BEGIN 1 PLACE
+	     ********************** -->
 
 	  {% for place in places|sort(attribute='name') %}
 
@@ -97,6 +133,10 @@
 	      </div>
 	    </div>
 
+	    <!-- **********************
+		 USER
+		 **********************  -->
+
 	    <div class="user">
 
 	      <strong>Owner: {{ users[place.user_id] }}</strong>
@@ -115,6 +155,8 @@
 	</section>
       </div>
     </main>
+
+    <!-- FOOTER -->
 
     <footer>
       Holberton School
